@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Index.aspx" title="Inicio"  description="Pagina de Inicio OnBreak">
+    <siteMapNode url="MantenedorActividadEmpresa.aspx" title="Actividad Empresa"  description="" />
+    <siteMapNode url="MantenedorModalidadServicio.aspx" title="Modalidad de Servicio"  description="" />
+	  <siteMapNode url="MantenedorTipoEmpresa.aspx" title="Tipo de Empresa"  description="" />
+  </siteMapNode>
+</siteMap>

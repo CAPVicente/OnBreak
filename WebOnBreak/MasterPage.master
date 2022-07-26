@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>On Break</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="img/logo_transparent_background.png" rel="icon"/>
+    <style type="text/css">
+        html {
+            overflow: hidden;
+            overflow-y: scroll;
+        }
+        body {
+            margin:0px;
+        }
+        .auto-style1 {
+            width: 141px;
+        }
+        .header{
+            background-color: #780d14;
+            max-height: auto;
+            min-height: 8vh;
+        }
+        ul{
+            margin:0;
+            padding:0;
+        }
+        li { 
+            display: inline-block;
+        }
+        .buttons{
+            margin-top: 25px;
+            margin-bottom:25px;
+            color: white;
+            text-decoration:none;
+            padding-left:25px;
+            padding-right:25px;
+            border-right:1px solid #4b060b;
+        }
+        .buttons:hover{
+            background-color: #a13f45;
+        }
+        footer{
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/ 
+            height:auto;
+            background: grey;
+            color: white;
+            background-color:#780d14;
+        }
+    </style>
+</head>
+<body class="paraBody" style="background-image: url(img/white_logo_transparent_background.png)">
+    <form id="form1" runat="server">
+        <nav>
+            <div class="header">
+                <ul>
+                    <li><a href="Index.aspx">
+                    <img src="img/OBLogoWebLightMode.png" alt="Alternate Text" style="height: 54px; width: 276px; vertical-align: middle;" />
+                </a></li>
+                    <li>
+                        <a class="buttons" href="index.aspx" >Inicio</a>
+                        &nbsp;
+<%--                    <asp:Button ID="btn_Inicio"  runat="server" Text="Inicio" Width="67px" class="buttons buttons-outline" Font-Bold="True" Font-Names="Segoe UI Light" />--%>
+                </li>
+                    <li>
+                        <a class="buttons" href="MantenedorActividadEmpresa.aspx" >Actividad Empresa</a>
+                        
+                        &nbsp;
+                    <%--<asp:Button ID="btn_Mantenedores" runat="server" Text="Mantenedores" Width="132px" class="buttons buttons-outline" Font-Bold="True" Font-Names="Segoe UI Light"/>--%>
+                </li><li>
+                        <a class="buttons" href="MantenedorModalidadServicio.aspx" >Modalidad Servicio</a>
+                        
+                        &nbsp;
+                    <%--<asp:Button ID="btn_Mantenedores" runat="server" Text="Mantenedores" Width="132px" class="buttons buttons-outline" Font-Bold="True" Font-Names="Segoe UI Light"/>--%>
+                </li><li>
+                        <a class="buttons" href="MantenedorTipoEmpresa.aspx" >Tipo Empresa</a>
+                        
+                        &nbsp;
+                    <%--<asp:Button ID="btn_Mantenedores" runat="server" Text="Mantenedores" Width="132px" class="buttons buttons-outline" Font-Bold="True" Font-Names="Segoe UI Light"/>--%>
+                </li>
+                </ul>
+                
+                
+            </div>
+        </nav>
+        <div>
+            <table style="width:100%;">
+            <tr>
+                <td class="auto-style1">
+                </td>
+                <td>
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Verdana" Font-Size="0.8em" PathSeparator=" : ">
+                        <CurrentNodeStyle ForeColor="#333333" />
+                        <NodeStyle Font-Bold="True" ForeColor="#990000" />
+                        <PathSeparatorStyle Font-Bold="True" ForeColor="#990000" />
+                        <RootNodeStyle Font-Bold="True" ForeColor="#FF8000" />
+                    </asp:SiteMapPath>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+                   
+                </td>
+                <td>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        </div>
+        <footer>
+            <p>All Rights Reserved.</p>
+            <p>Created by VIK</p> 
+        </footer>
+    </form>
+</body>
+</html>
+
+<style>
+
+</style>

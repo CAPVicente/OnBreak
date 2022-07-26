@@ -1,0 +1,152 @@
+﻿<metro:MetroWindow x:Class="OnBreak.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnBreak"
+        mc:Ignorable="d"
+        TitleCharacterCasing="Normal"
+        ResizeMode="CanMinimize"
+        xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls" 
+        WindowStartupLocation="CenterScreen"
+        Title="OnBreak" Height="450" Width="800"
+        ShowTitleBar="False"
+        ShowCloseButton="False"
+        ShowMinButton="False"
+        Icon="/white_logo_color_background.jpg">
+
+    <Grid x:Name="bg_grid" Background="#FFFDF6ED" Width="Auto">
+        <!-- Title Bar -->
+        <!-- Definición de columnas para botones de minimizar y cerrar -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <!-- Botones -->
+        <!-- Botón cerrar -->
+        <Button x:Name="Close" Grid.Column="2" Click="Close_Click">
+            <!-- Estilo para el background color del botón, y el trigger para darle un cambio de color -->
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FFF5E7D4"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <!-- Trigger para cambiar de color cuando el puntero esté sobre el botón -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEDD0A7"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Grid Height="13" Width="16">
+                <metro:FontIcon x:Name="closeIcon" FontFamily="Segoe MDL2 Assets" Glyph="&#xE8BB;" Foreground="#FF780D14" Margin="-1,0,-1,0" />
+            </Grid>
+        </Button>
+        <!-- Botón minimizar -->
+        <Button x:Name="Minimize" Grid.Column="1" Click="Minimize_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FFF5E7D4"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <!-- Trigger para cambiar de color cuando el puntero esté sobre el botón -->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEDD0A7"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Grid>
+                <metro:FontIcon x:Name="minimize_Icon" FontFamily="Segoe MDL2 Assets" Glyph="&#xE921;" Foreground="#FF780D14" Height="10" Width="13" Margin="1,2,0,-2"/>
+            </Grid>
+        </Button>
+        <!-- Grid para Title bar -->
+        <Grid x:Name="TitleBar" Background="#FFF5E7D4">
+            <TextBlock x:Name="Titulo" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF780D14" FontWeight="Bold" FontFamily="Segoe UI Semibold" Margin="378,0,0,0">OnBreak</TextBlock>
+        </Grid>
+        <!-- Fin de Title Bar -->
+
+        <!-- Grid para imagen OnBreak -->
+        <Grid Margin="270,15,240,265" Grid.Row="1">
+            <Image x:Name="logo_Empresa" Margin="22,-17,-16,0" Source="images/LOGO LISTO PINTADO 2.png" Stretch="Uniform" />
+            <Image x:Name="logo_EmpresaWhite" Margin="22,-17,-16,0" Source="/images/LOGO LISTO PINTADO 2 dm.png" Stretch="Uniform" Visibility="Hidden"/>
+        </Grid>
+        <!-- Tiles -->
+        <metro:Tile x:Name="tile_Contratos" HorizontalAlignment="Left" Margin="140,286,0,0" VerticalAlignment="Top" Width="240" Height="99" 
+                    Background="#FFF7E6C4" Grid.Row="1" Click="tile_Contratos_Click">
+            <Grid Width="35" Height="36">
+                <TextBlock Margin="32,5,-81,5" x:Name="tile_ContratosText" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" Foreground="#FF780D14">Contratos</TextBlock>
+                <Image Source="/images/Contratos.png" Margin="-126,-40,-31,-48"/>
+            </Grid>
+        </metro:Tile>
+        <metro:Tile x:Name="t_clientes" HorizontalAlignment="Left" Margin="140,171,0,0" VerticalAlignment="Top" Height="99" Width="240" Background="#FFF7E6C4" Click="t_clientes_Click" Grid.Row="1">
+            <Grid>
+                <TextBlock x:Name="t_clientesText" Margin="64,38,-36,37" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" Foreground="#FF780D14">Clientes</TextBlock>
+                <Image Source="/images/Clientes.png" Margin="-71,0,39,-15"/>
+            </Grid>
+        </metro:Tile>
+        <metro:Tile x:Name="t_listadoClientes" HorizontalAlignment="Left" Margin="420,171,0,0" VerticalAlignment="Top" Width="240" Height="99" Background="#FFF7E6C4" Grid.Row="1" Click="t_listadoClientes_Click">
+            <Grid>
+                <TextBlock x:Name="t_listadoClientesText" Margin="57,38,-30,37" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" Foreground="#FF780D14">Listado Clientes</TextBlock>
+                <Image Source="/images/ListadoClientes.png" Margin="-82,-10,57,-11"/>
+            </Grid>
+        </metro:Tile>
+        <metro:Tile x:Name="tile_listadoContratos" HorizontalAlignment="Left" Margin="420,286,0,0" VerticalAlignment="Top" Width="240" Height="99" Background="#FFF7E6C4" Grid.Row="1" Click="tile_listadoContratos_Click">
+            <Grid Height="79" Width="70">
+                <TextBlock x:Name="t_listadoContratosText" Margin="0,0,-83,48" FontWeight="Bold" FontFamily="Baskerville Old Face" FontSize="20" Foreground="#FF780D14">Listado Contratos</TextBlock>
+                <Image Source="/images/listadoContratos.png" Margin="-113,-58,-35,-68"/>
+            </Grid>
+        </metro:Tile>
+        <!-- Buttons -->
+        <Button x:Name="btn_Settings" HorizontalAlignment="Left" Margin="20,18,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="35" Background="#FFF5E7D4" 
+                BorderBrush="#FF780D14" Style="{DynamicResource MahApps.Styles.Button.Circle}" Click="btn_Settings_Click">
+            <Grid Height="25" Width="15">
+                <metro:FontIcon x:Name="settingsIcon" FontFamily="Segoe MDL2 Assets" Glyph="&#xE713;" Foreground="#FF780D14" Margin="-4,2,-4,3"/>
+            </Grid>
+        </Button>
+        <!-- Flyout -->
+        <metro:Flyout x:Name="fo_settings" Grid.Row="1" Margin="0,0,482,0" Header="Configuración" Foreground="White">
+            <metro:Flyout.Background>
+                <SolidColorBrush Color="#FF780D14" Opacity="0.9"/>
+            </metro:Flyout.Background>
+            <!-- Grid para colocar TextBoxes -->
+            <Grid Margin="0,10,0,0">
+                <!-- ToggleSwitch -->
+                <metro:ToggleSwitch x:Name="ts_displaymode" Height="53" Header="Display" Margin="35,10,0,0" VerticalAlignment="Top" Width="100" Foreground="#FFFBFBFB"
+                                    OffContent="Modo claro" OnContent="Modo oscuro" Toggled="ts_displaymode_Toggled"/>
+                <!-- Resolución ComboBox -->
+                <TextBlock HorizontalAlignment="Left" Margin="35,68,0,0" TextWrapping="Wrap" Text="Resolución" VerticalAlignment="Top" FontSize="14"/>
+                <ComboBox x:Name="cb_Resoluciones" HorizontalAlignment="Center" Margin="0,98,0,0" VerticalAlignment="Top" Width="175" SelectedIndex="0" SelectionChanged="cb_Resoluciones_SelectionChanged">
+                    <ComboBoxItem>Default</ComboBoxItem>
+                    <ComboBoxItem>1024x576</ComboBoxItem>
+                    <ComboBoxItem>1280x720</ComboBoxItem>
+                    <ComboBoxItem>1366x768</ComboBoxItem>
+                    <ComboBoxItem>1600x900</ComboBoxItem>
+                    <ComboBoxItem>1920x1080</ComboBoxItem>
+                </ComboBox>
+                <Button x:Name="btn_accederCapaWeb" Content="Mantenedor Web" HorizontalAlignment="Left" Margin="32,129,0,0" VerticalAlignment="Top" Width="176" Click="Btn_accederCapaWeb_Click"/>
+            </Grid>
+        </metro:Flyout>
+    </Grid>
+</metro:MetroWindow>
